@@ -1,0 +1,416 @@
+<?php require_once("includes/config.php");?>
+<?php include("includes/header.php");?>
+
+<br/>
+  <div class="container" >
+
+    <div class = "row";  >
+
+      <div class = "col-md-12"  >
+
+        <header id="myCarousel" class="carousel slide" >
+        <ol class="carousel-indicators" >
+
+
+
+          <?php
+
+          $slidersor=mysql_query("select * from Slider order by slider_sira ASC");
+          $say=0;
+          while($sliderduzenle=mysql_fetch_assoc($slidersor)) {
+
+
+            if($say==0) {
+
+            ?>
+
+          <li data-target="#myCarousel" data-slide-to="<?php echo $sliderduzenle['slider_id'];?>" class="active"></li>
+
+      <?php  } else{?>
+
+
+            <li data-target="#myCarousel" data-slide-to="<?php echo $sliderduzenle['slider_id'];?>" class=""></li>
+
+        <?php } $say++;  }?>
+
+
+
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" style= "width:100%; margin-left:auto; margin-right:auto; margin-top:40px; margin-bottom:40px; " >
+
+
+
+
+
+              <?php
+
+              $slidersor=mysql_query("select * from Slider order by slider_sira ASC");
+
+              $sayac=0;
+
+              while($sliderduzenle=mysql_fetch_assoc($slidersor)) {
+
+
+                if($sayac==0){
+
+               ?>
+
+               <div class="item active" >
+
+                 <div class="fill" style=" background-image:url('AdminDuyurular/Uploads/<?php echo $sliderduzenle['slider_resim_yol'];?>');"></div>
+                   <div class="carousel-caption">
+                     <h3><?php echo $sliderduzenle['slider_baslik'];?><br/><h4><?php echo $sliderduzenle['slider_icerik'];?></h4></h3>
+                   </div>
+               </div>
+
+          <?php   } else {?>
+
+
+                <div class="item" >
+
+                  <div class="fill" style=" background-image:url('AdminDuyurular/Uploads/<?php echo $sliderduzenle['slider_resim_yol'];?>');"></div>
+                    <div class="carousel-caption">
+                      <h3><?php echo $sliderduzenle['slider_baslik'];?><br/><h4><?php echo $sliderduzenle['slider_icerik'];?></h4></h3>
+                    </div>
+                </div>
+
+
+            <?php } $sayac++; } ?>
+
+
+
+
+
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </header>
+
+        </div>
+      </div>
+
+
+</div>
+</div>
+
+<div class="container">
+
+  <div class="row">
+              <div class="col-lg-12">
+                  <h2 class="page-header"></h2>
+              </div>
+              <div class="col-lg-12">
+
+                  <ul id="myTab" class="nav nav-tabs nav-justified">
+                      <li class="active"><a href="#duyurular" data-toggle="tab"><i class="duyurular"></i> Genel Duyurular</a>
+                      </li>
+                      <li class=""><a href="#bolum" data-toggle="tab"><i class="bolum"></i> Bölüm Duyuruları</a>
+                      </li>
+                      <li class=""><a href="#haber" data-toggle="tab"><i class="haber" ></i> Haber ve Etkinlik</a>
+                      </li>
+                      <li class=""><a href="#ders" data-toggle="tab"><i class="ders"></i> Ders Notları</a>
+                      </li>
+                  </ul>
+
+                  <div id="myTabContent" class="tab-content">
+                      <div class="tab-pane fade active in" id="duyurular">
+                          <h4>Genel Duyurular</h4>
+
+
+                          <?php
+
+                          $genelduyurusor=mysql_query("select * from Genelduyurular  order by genel_id DESC limit 8");
+                          while($genelduyuruduzenle=mysql_fetch_assoc($genelduyurusor)) {?>
+                          <div class="col-md-3 col-sm-6">
+                <div class="panel panel-default text-center">
+                  <div class="panel-heading" >
+                  <a target="_self" href="#">
+                              <img src="/YazLab/img/kocaeli-universitesi.png"  style='width:50%;' > </br> </br>  </a>
+          <div class="calendar-haber" >
+
+                      <span class="s-month"><?php echo $genelduyuruduzenle['genel_tarih']; ?></span>
+                                </div>
+
+
+                  </div>
+                    <div class="panel-body" style="height:175px;">
+                        <h4><?php echo $genelduyuruduzenle['genel_kisi']; ?></h4>
+                        <p><?php echo $genelduyuruduzenle['genel_baslik']; ?></p>
+
+                    </div>
+                    <div class="butonkonum" style="margin-bottom:15px;">
+
+                            <a href="#aboutModal" data-toggle="modal"  data-target="#myModalduyuru<?php echo $genelduyuruduzenle['genel_id']; ?>" class="btn btn-primary">Devamını Oku</a>
+                        <div class="modal fade" id="myModalduyuru<?php echo $genelduyuruduzenle['genel_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                        <h4 class="modal-title" id="myModalLabel"><?php echo $genelduyuruduzenle['genel_baslik']; ?></h4>
+                                        </div>
+                                    <div class="modal-body">
+                                        <center>
+
+                                        <hr>
+                                        <center>
+                                        <p class="text-left"><?php echo $genelduyuruduzenle['genel_icerik']; ?> </p>
+
+                                        </center>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <center>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Kapat</button>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    </div>
+                    <?php } ?>
+
+
+                    <div class="col-md-12">
+
+                    <td><a href="Genelduyurular.php"><button class = "btn btn-primary col-md-12"  type="submit"><h3>Tüm Genel Duyurular</h3></button></a></td>
+                  </br>
+                  </br>
+                  </br>
+                  </br>
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+                      <div class="tab-pane fade" id="bolum">
+                          <h4>Bölüm Duyuruları</h4>
+
+                          <?php
+
+                          $bolumduyurularsor=mysql_query("select * from BolumDuyurular order by bolum_id DESC limit 8");
+                          while($bolumduyurularduzenle=mysql_fetch_assoc($bolumduyurularsor)) {?>
+                          <div class="col-md-3 col-sm-6">
+                <div class="panel panel-default text-center">
+                  <div class="panel-heading" >
+                  <a target="_self" href="#">
+                              <img src="/YazLab/img/kocaeli-universitesi.png"  style='width:50%;' > </br> </br>  </a>
+          <div class="calendar-haber" >
+                      <span class="s-month"><?php echo $bolumduyurularduzenle['bolum_tarih']; ?></span>
+                                </div>
+
+
+                  </div>
+                    <div class="panel-body" style="height:175px;">
+                        <h4><?php echo $bolumduyurularduzenle['bolum_kisi']; ?></h4>
+                        <p><?php echo $bolumduyurularduzenle['bolum_baslik']; ?></p>
+
+                    </div>
+                    <div class="butonkonum" style="margin-bottom:15px;">
+
+                            <a href="#aboutModal" data-toggle="modal"  data-target="#myModalbolum<?php echo $bolumduyurularduzenle['bolum_id']; ?>" class="btn btn-primary">Devamını Oku</a>
+                        <div class="modal fade" id="myModalbolum<?php echo $bolumduyurularduzenle['bolum_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                        <h4 class="modal-title" id="myModalLabel"><?php echo $bolumduyurularduzenle['bolum_baslik']; ?></h4>
+                                        </div>
+                                    <div class="modal-body">
+                                        <center>
+
+                                        <hr>
+                                        <center>
+                                        <p class="text-left"><?php echo $bolumduyurularduzenle['bolum_icerik']; ?> </p>
+
+                                        </center>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <center>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Kapat</button>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    </div>
+                    <?php } ?>
+
+                    <div class="col-md-12">
+
+                    <td><a href="Bolumduyurulari.php"><button class = "btn btn-primary col-md-12"  type="submit"><h3>Tüm Bölüm Duyuruları</h3></button></a></td>
+                  </br>
+                  </br>
+                  </br>
+                  </br>
+                  </div>
+                      </div>
+                      <div class="tab-pane fade" id="haber">
+                          <h4>Haber ve Etkinlikler</h4>
+
+
+                          <?php
+
+                          $haberveetkinliksor=mysql_query("select * from Haberveetkinlik order by haberveetkinlik_id DESC limit 8");
+                          while($haberveetkinlikduzenle=mysql_fetch_assoc($haberveetkinliksor)) {?>
+                          <div class="col-md-3 col-sm-6">
+                <div class="panel panel-default text-center">
+                  <div class="panel-heading" >
+                  <a target="_self" href="#">
+                              <img src="/YazLab/img/kocaeli-universitesi.png"  style='width:50%;' > </br> </br>  </a>
+          <div class="calendar-haber" >
+                      <span class="s-month"><?php echo $haberveetkinlikduzenle['haberveetkinlik_tarih']; ?></span>
+                                </div>
+
+
+                  </div>
+                    <div class="panel-body" style="height:175px;">
+                        <h4><?php echo $haberveetkinlikduzenle['haberveetkinlik_kisi']; ?></h4>
+                        <p><?php echo $haberveetkinlikduzenle['haberveetkinlik_baslik']; ?></p>
+
+                    </div>
+                    <div class="butonkonum" style="margin-bottom:15px;">
+
+                            <a href="#aboutModal" data-toggle="modal"  data-target="#myModalhaber<?php echo $haberveetkinlikduzenle['haberveetkinlik_id']; ?>" class="btn btn-primary">Devamını Oku</a>
+                        <div class="modal fade" id="myModalhaber<?php echo $haberveetkinlikduzenle['haberveetkinlik_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                        <h4 class="modal-title" id="myModalLabel"><?php echo $haberveetkinlikduzenle['haberveetkinlik_baslik']; ?></h4>
+                                        </div>
+                                    <div class="modal-body">
+                                        <center>
+
+                                        <hr>
+                                        <center>
+                                        <p class="text-left"><?php echo $haberveetkinlikduzenle['haberveetkinlik_icerik']; ?> </p>
+
+                                        </center>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <center>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Kapat</button>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    </div>
+                    <?php } ?>
+                    <div class="col-md-12">
+
+                    <td><a href="HaberveEtkinlik.php"><button class = "btn btn-primary col-md-12"  type="submit"><h3>Tüm Haber ve Etkinlikler</h3></button></a></td>
+                  </br>
+                  </br>
+                  </br>
+                  </br>
+                          </div>
+
+                        </div>
+                      <div class="tab-pane fade" id="ders">
+                          <h4>Ders Notları</h4>
+
+                          <?php
+
+                          $dersnotlarisor=mysql_query("select * from Dersnotlari order by dersnotlari_id DESC limit 8");
+                          while($dersnotlariduzenle=mysql_fetch_assoc($dersnotlarisor)) {?>
+                          <div class="col-md-3 col-sm-6">
+                <div class="panel panel-default text-center">
+                  <div class="panel-heading" >
+                  <a target="_self" href="#">
+                              <img src="/YazLab/img/kocaeli-universitesi.png"  style='width:50%;' > </br> </br>  </a>
+          <div class="calendar-haber" >
+                      <span class="s-month"><?php echo $dersnotlariduzenle['dersnotlari_tarih']; ?></span>
+                                </div>
+
+
+                  </div>
+                    <div class="panel-body" style="height:175px;">
+                        <h4><?php echo $dersnotlariduzenle['dersnotlari_kisi']; ?></h4>
+                        <p><?php echo $dersnotlariduzenle['dersnotlari_baslik']; ?></p>
+
+                    </div>
+                    <div class="butonkonum" style="margin-bottom:15px;">
+
+                            <a href="#aboutModal" data-toggle="modal"  data-target="#myModalnot<?php echo $dersnotlariduzenle['dersnotlari_id']; ?>" class="btn btn-primary">Devamını Oku</a>
+                        <div class="modal fade" id="myModalnot<?php echo $dersnotlariduzenle['dersnotlari_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                        <h4 class="modal-title" id="myModalLabel"><?php echo $dersnotlariduzenle['dersnotlari_baslik']; ?></h4>
+                                        </div>
+                                    <div class="modal-body">
+                                        <center>
+
+                                        <hr>
+                                        <center>
+                                        <p class="text-left"><?php echo $dersnotlariduzenle['dersnotlari_icerik']; ?> </p>
+
+                                        </center>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <center>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Kapat</button>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    </div>
+
+                    <?php } ?>
+                    <div class="col-md-12">
+
+                    <td><a href="DersNotlari.php"><button class = "btn btn-primary col-md-12"  type="submit"><h3>Tüm Notlar</h3></button></a></td>
+                  </br>
+                  </br>
+                  </br>
+                  </br>
+                          </div>
+                        </div>
+                  </div>
+
+              </div>
+              </div><h2 class="page-header"></h2>
+              </div>
+
+
+
+
+</div>
+
+<?php include("includes/footer.php");?>
+<?php error_reporting(E_ALL ^ E_NOTICE); ?>

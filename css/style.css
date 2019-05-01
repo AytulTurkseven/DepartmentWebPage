@@ -1,0 +1,281 @@
+.navbar-default{background-color:#075339; border-radius:0px; border-color:transparent; padding: 11px;  height: auto; -webkit-box-shadow: 0 15px 30px 10px #696969; box-shadow: 0 15px 30px 10px #696969;}
+
+.navbar-default .navbar-brand {}
+
+body{
+  background-color: #D6D6D6;
+
+
+}
+
+.navbar-default .navbar-nav>li>a {color:#fff; font-size: 20px; margin-top: 28px;}
+
+.navbar-default .navbar-nav>li>a:hover {color:#fff; font-size: 20px; margin-top:28x; }
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #fff; background-color: #075339;
+
+}
+.navbar .navbar-nav {display: inline-block; float:none; vertical-align:top;}
+.navbar .navbar-collapse {text-align:left;}
+
+.konuAlani {background-color: #E0E0E0; }
+/* SIDEBAR */
+
+.container{border:1px solid #d1d1d1;background-color:#FFFFFF;-webkit-box-shadow: 0 15px 30px 10px #696969; box-shadow: 0 15px 30px 10px #696969;}
+.container .row .icerik{
+font-size: 17px;
+margin-top:45px;
+margin-left: 30px;
+margin-right: 30px;
+margin-bottom: 45px;
+
+}
+
+
+.iletisimtasarim{
+  border-bottom: 3px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 24px;
+}
+
+.duyurucizgi{
+  border-bottom: 3px solid #eee;
+  padding-top:5px;
+  padding-bottom:5px;
+}
+
+.container .row .icerik .modal.fade .modal-dialog .modal-content .modal-body .kisiseliletisim{
+  text-align:left;
+  margin-left:165px;
+
+}
+
+
+/*.col-md-12 img{margin:0 auto;}
+.col-md-6{border:0px solid #000;}
+.clear{clear:both;}
+
+*/
+
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  border-top-left-radius: 3px ;
+  border-color: #075339;
+  border-top-right-radius: 3px;
+  background-color: #075339;
+}
+
+.modal-title {
+  margin: 0;
+  line-height: 1.42857143;
+  color:#fff;
+  text-align: center;
+}
+
+.modal-footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+
+}
+
+@font-face{
+	font-family: Ubuntu;
+	src: url(../fonts/OpenSans-Light.ttf);
+}
+
+@font-face{
+	font-family:openSansItalic;
+	src: url(../fonts/OpenSans-LightItalic.ttf);
+}
+
+h2{
+    margin: 0;
+    color: #666;
+    padding-top: 90px;
+    font-size: 52px;
+    font-family: "trebuchet ms", sans-serif;
+}
+.carousel-inner .item{
+    background: #333;
+    text-align: center;
+    height: 300px !important;
+}
+.carousel{
+    margin-top: -41px;
+    margin-left: -16px;
+    margin-right: -16px;
+}
+.bs-example{
+	margin: 20px;
+}
+
+/* SIDEBAR */
+
+#sidebar{
+	border:0px solid #000;
+}
+
+.contentBox{
+	border:0px solid #000;
+}
+#notice{
+	height:33px;
+	border:0px solid #000;
+	background-image:url('../img/bgNotice.png');
+	background-repeat:no-repeat;
+	background-position: right;
+}
+
+#event{
+	height:33px;
+	background-image:url('../img/bgEvent.png');
+	background-repeat:no-repeat;
+	background-position: right;
+}
+
+#notice h3, #event h3{
+	margin-left:15px;
+	font-family:Ubuntu;
+	font-weight:bold;
+	color:#777777;
+}
+
+.contentList{
+	border:0px solid #000;
+}
+
+.contentList .item{
+	border:1px solid;
+	border-color : lightgrey;
+}
+
+.contentList .item:nth-child(even){
+	background: #E0E0E0;
+}
+
+/* SIDEBAR CALENDAR STYLE */
+.dateBox {
+text-align: center;
+width: 18em;
+margin-left: -15px;
+
+
+
+
+
+}
+
+
+.dateBox .month{
+	font-family:Ubuntu;
+	font-size:17px;
+
+	color:#FFFFFF;
+	background-color:#075339;
+	font-weight:bold;
+}
+
+.dateBox .day{
+	font-family:Ubuntu;
+	font-size:50px;
+	font-weight:bold;
+	color:#868686;
+
+
+
+}
+
+/* SIDEBAR CONTENT BOX */
+
+.mainInfo{
+	border:0px solid #000;
+	width:82%;
+	float:right;
+	margin:5px 0 0 0;
+	line-height:15px;
+}
+
+.mainInfo .author{
+	font-family:ubuntuItalic;
+	font-weight:bold;
+	font-size:15px;
+	color:#00000;
+	margin-bottom : 10px;
+	margin-top: 15px;
+}
+
+.mainInfo .title {
+	font-family:Ubuntu;
+	color:#777777;
+	font-weight:bold;
+	font-size:15px;
+	text-decoration:none;
+	margin-bottom : 10px;
+}
+
+.mainInfo .title a{
+	font-family:Ubuntu;
+	color:#777777;
+	font-weight:bold;
+	font-size:15px;
+	/*text-decoration:none;*/
+}
+
+/* BOTTOM MENUS STYLE */
+
+#bottomMenus{
+	border:0px solid #000;
+	margin:0 auto;
+}
+
+.menuWindow{
+	border:2px dashed #aaaaaa;
+	float:left;
+	padding:5px;
+	width:100%;
+	margin:10px 0 0 0;
+	background:#f6f6f6;
+}
+
+.menuWindow h2{
+	font-family:Ubuntu;
+	color:#000000;
+	font-weight:bold;
+	font-size:15px;
+	margin-left:5px;
+}
+
+.menuWindow ul li{
+	list-style-type:disc;
+	color:#777777;
+}
+
+.menuWindow ul li a{
+	font-family:Ubuntu;
+	color:#777777;
+	font-weight:bold;
+	font-size:14px;
+	text-decoration:none;
+}
+
+.menuWindow ul li a:hover{
+	text-decoration:underline;
+}
+
+
+
+
+.calendar-haber {
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-bottom: -10px;
+    background-color:#075339;
+     color: #ffffff;
+     font-size: 20px;
+
+}
